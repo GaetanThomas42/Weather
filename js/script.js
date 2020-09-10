@@ -17,7 +17,7 @@ function getWeaterFromCity() {
     var city = document.getElementById("citySearch").value;
     console.log(city);
     if (city != "") {
-        let r = httpGet('https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=7aa32cc4b173f17805891e587182a64b');
+        let r = httpGet('https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid={YOUR_TOKEN}');
         r.send();
         r.onload = function () {
             data = r.response;
@@ -32,7 +32,7 @@ function getWeaterFromCity() {
 }
 
 function getWeaterFromPos(lat, long) {
-    let r = httpGet('https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + long + '&appid=7aa32cc4b173f17805891e587182a64b');
+    let r = httpGet('https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + long + '&appid={YOUR_TOKEN}');
     r.send();
     r.onload = function () {
         let data = r.response;
@@ -84,7 +84,7 @@ navigator.geolocation.getCurrentPosition(function (position) {
         id: 'mapbox/streets-v11',
         tileSize: 512,
         zoomOffset: -1,
-        accessToken: 'pk.eyJ1IjoiZ2F6ei1kZXYiLCJhIjoiY2tlazl5aHh4Mm8xczJ6bWl0eTY1YTg3cCJ9.Hs_2dNA80s9gQaYiqsMXpw'
+        accessToken: '{YOUR_TOKEN}'
     }).addTo(myMap);
     getWeaterFromPos(position.coords.latitude, position.coords.longitude);
 
