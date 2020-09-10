@@ -1,5 +1,10 @@
-#map{
-    height:90vh;
+#map {
+    height: 90vh;
     width: 100%;
     position: inherit;
+}
+
+body {
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
